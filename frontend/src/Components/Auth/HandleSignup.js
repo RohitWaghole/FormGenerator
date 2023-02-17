@@ -1,7 +1,7 @@
 import userApi from "../API/UserData.js";
 
 
-const handleSignup = async (userCred) => {
+const handleSignup = async (userCred,setDialog) => {
 
     const res = await userApi.post('/signup', userCred);
 
@@ -10,7 +10,7 @@ const handleSignup = async (userCred) => {
     }
 
     else{
-        alert(res.data.massage)
+        setDialog(res.data.massage)
         return false;
     }
 }

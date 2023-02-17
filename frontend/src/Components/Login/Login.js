@@ -33,7 +33,7 @@ const Login = (props) => {
         password: password,
       };
 
-      const accessFlag = await handleLogin(userInput);
+      const accessFlag = await handleLogin(userInput,setDialog);
 
       if (accessFlag === true) {
         //navigate to User Home Page

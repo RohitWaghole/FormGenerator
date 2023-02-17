@@ -1,7 +1,7 @@
 import userApi from "../API/UserData.js";
 
 
-const handleLogin = async (userCred) => {
+const handleLogin = async (userCred,setDialog) => {
 
     const res = await userApi.post('/login', userCred);
     
@@ -10,7 +10,7 @@ const handleLogin = async (userCred) => {
         return true;
     }
     else{
-        alert(res.data.massage)
+        setDialog(res.data.massage)
     }
     
     console.log(res.data.massage)

@@ -32,7 +32,7 @@ const counts = {
 
 
 const CreateForm = (props) => {
-
+    const [dialog, setDialog] = useState("");
     const [formConfiguration, setFormConfiguration] = useState([]);
 
     const navigate = useNavigate();
@@ -107,7 +107,7 @@ const CreateForm = (props) => {
             headers: { 'authorization': accessToken }
         });
 
-        if (apiRes.data.status === false) return alert("Something went wrong!");
+        if (apiRes.data.status === false) return setDialog("Something went wrong!");
 
         else {
             renderForm(apiRes.data.data);
@@ -132,7 +132,7 @@ const CreateForm = (props) => {
     };
 
     const handlePublish = async () => {
-        const res = await HandleSaveForm(email, formConfiguration, name, formID, allowDuplicate);
+        const res = await HandleSaveForm(email, formConfiguration, name, formID, allowDuplicate,setDialog);
 
         if (res) {
             navigate(`/${email}/publish`, { state: { formID: res.formID } });
@@ -231,6 +231,10 @@ const CreateForm = (props) => {
                         <div>
                             <label>Allow Duplicate</label>
                             <input type="checkbox" checked={allowDuplicate} onChange={(e) => { setAllowDuplicate(e.target.checked) }}></input>
+                        </div>
+
+                        <div style={{ marginTop: "30px", marginBottom:"30px" }}>
+                            <h4 style={{ color: "red",textAlign:"center" }}>{dialog}</h4>
                         </div>
 
                         <div className="publish-preview-btn">

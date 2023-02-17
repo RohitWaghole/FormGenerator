@@ -37,7 +37,7 @@ const Signup = () => {
         confirmPassword: confirmPassword,
       };
 
-      const accessFlag = await handleSingup(userInput);
+      const accessFlag = await handleSingup(userInput,setDialog);
 
       if (accessFlag === true) {
         event.target.email.value = ""

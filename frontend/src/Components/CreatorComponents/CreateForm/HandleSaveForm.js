@@ -1,6 +1,6 @@
 import formApi from "../../API/FormData";
 
-const HandleSaveForm = async (email,formConfiguration,formName,formID,allowDuplicate) => {
+const HandleSaveForm = async (email,formConfiguration,formName,formID,allowDuplicate,setDialog) => {
     const accessToken = localStorage.getItem(email);
 
     if(formName==='' || formName===null) formName="Untitled"
@@ -9,7 +9,7 @@ const HandleSaveForm = async (email,formConfiguration,formName,formID,allowDupli
 
     formConfiguration.map((field) => {
         if (field.label === '' || field.label === null) {
-            alert("Please add label to all fields!")
+            setDialog("Please add label to all fields!")
             emptyLabels = true
         }
     })
@@ -31,7 +31,7 @@ const HandleSaveForm = async (email,formConfiguration,formName,formID,allowDupli
         return querRes.data.data;
     }
 
-    alert(querRes.data.massage)
+    setDialog(querRes.data.massage)
     return false;
 }
 
