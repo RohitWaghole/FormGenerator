@@ -1,7 +1,7 @@
 {
     "api": {
-        "formApi": "http://52.66.78.149:5000/form",
-        "userApi": "http://52.66.78.149:5000/user/",
-        "resApi": "http://52.66.78.149:5000/response"
+        "formApi": "http://3.110.222.27:5000/form",
+        "userApi": "http://3.110.222.27:5000/user/",
+        "resApi": "http://3.110.222.27:5000/response"
     }
 }
