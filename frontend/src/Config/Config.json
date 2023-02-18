@@ -1,7 +1,7 @@
 {
     "api": {
-        "formApi": "http://3.110.222.27:5000/form",
-        "userApi": "http://3.110.222.27:5000/user/",
-        "resApi": "http://3.110.222.27:5000/response"
+        "formApi": "http://localhost:5000/form",
+        "userApi": "http://localhost:5000/user/",
+        "resApi": "http://localhost:5000/response"
     }
 }
